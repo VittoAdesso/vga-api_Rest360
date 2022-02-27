@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bcfsdsep2021",
+    "password": "0?xZs41lUgk^q859",
+    "database": "vga_rest360",
+    "host": "185.45.74.25",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

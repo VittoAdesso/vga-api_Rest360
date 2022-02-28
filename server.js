@@ -14,6 +14,7 @@ require('./routes/menu.routes')(app);
 require('./routes/menu_article.routes')(app);
 require('./routes/order.routes')(app);
 require('./routes/order_article.routes')(app);
+require('./routes/order.routes')(app);
 
 
 

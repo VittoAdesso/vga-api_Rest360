@@ -1,10 +1,10 @@
 const db = require('../models');
-const MenuAticle = db.user;
+const MenuArticle = db.user;
 
 exports.findAll = async (req, res) => {
 
-    const menusAticles = await MenuAticle.findAll();
+    const menusArticles = await MenuArticle.findAll();
 
-    res.send(menusAticles);
+    res.send(menusArticles);
 }
 

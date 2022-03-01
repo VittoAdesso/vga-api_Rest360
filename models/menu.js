@@ -14,11 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   menu.init({
+    idArticle: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     nameDish: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    position: {
+    type: {
       type: DataTypes.STRING,
       allowNull: false
     },

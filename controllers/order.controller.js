@@ -1,5 +1,5 @@
 const db = require('../models');
-const Order = db.user;
+const Order = db.order;
 
 exports.findAll = async (req, res) => {
 

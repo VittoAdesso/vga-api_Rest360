@@ -1,9 +1,9 @@
 const db = require('../models');
-const Article = db.table;
+const Article = db.article;
 
 exports.findAll = async (req, res) => {
 
-    const article = await Article.findAll();
+    const articles = await Article.findAll();
 
-    res.send(article);
+    res.send(articles);
 }

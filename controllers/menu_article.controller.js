@@ -1,5 +1,5 @@
 const db = require('../models');
-const MenuArticle = db.user;
+const MenuArticle = db.menuArticle;
 
 exports.findAll = async (req, res) => {
 

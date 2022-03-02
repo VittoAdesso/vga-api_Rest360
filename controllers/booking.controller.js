@@ -1,5 +1,5 @@
 const db = require('../models');
-const Booking = db.user;
+const Booking = db.booking;
 
 exports.findAll = async (req, res) => {
 

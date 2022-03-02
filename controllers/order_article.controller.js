@@ -1,5 +1,5 @@
 const db = require('../models');
-const OrderArticle = db.user;
+const OrderArticle = db.orderArticle;
 
 exports.findAll = async (req, res) => {
 

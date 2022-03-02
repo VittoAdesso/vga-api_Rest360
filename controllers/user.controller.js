@@ -12,11 +12,11 @@ exports.findOne = async (req, res) => {
 
     const { id } = req.params;
     
-    const user = await User.findOne({
+    const users = await User.findOne({
         where: {
             id
         },
     });
 
-    res.send(user);
+    res.send(users);
 }

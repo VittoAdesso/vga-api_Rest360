@@ -6,5 +6,5 @@ module.exports = app => {
     router.get('/', menus.findAll);
     // router.get('/:id', menus.findOne);
 
-    app.use('/api/menus', router);
+    app.use('/vga/menus', router);
 }

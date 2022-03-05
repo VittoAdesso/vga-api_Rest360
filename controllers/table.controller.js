@@ -18,5 +18,5 @@ exports.findOne = async (req, res) => {
         },
     });
 
-    res.send(tables);
+    res.send(table);
 }

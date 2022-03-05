@@ -4,6 +4,7 @@ module.exports = app => {
 
     router.get('/', users.findAll);
     router.get('/:id', users.findOne);
+    router.post("/", users.create);
 
     app.use('/vga/users', router);
 }

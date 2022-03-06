@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
+    iva: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
     pvp: {
       type: DataTypes.DECIMAL,
       allowNull: true

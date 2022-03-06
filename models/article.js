@@ -24,12 +24,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     image: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
-      type: DataTypes.STRING,
+    timeCook: {
+      type: DataTypes.DECIMAL,
       allowNull: true
     },
     pvp: {
@@ -38,6 +42,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     iva: {
       type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
     gluten: {
@@ -76,7 +84,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    altramuce: {
+    altramuces: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
@@ -85,6 +93,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     sulfito: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    cacahuate: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     }

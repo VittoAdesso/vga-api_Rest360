@@ -16,12 +16,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   orderArticle.init({
+    
     idOrder: {
       type: DataTypes.STRING,
       allowNull: false
     },
     idArticle: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    costNeto: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    iva: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    pvp: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    time: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
       allowNull: false
     },
   

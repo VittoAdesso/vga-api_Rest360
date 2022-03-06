@@ -20,12 +20,32 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    idTable: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     idUser: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    idTable: {
+    numPerson: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    costNeto: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    iva: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    pvp: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
       allowNull: false
     },
   

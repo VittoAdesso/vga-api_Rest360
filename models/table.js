@@ -12,7 +12,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   table.init({
-    name: DataTypes.STRING
+
+    idTable: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    pax: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    idVisual: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+
+
   }, {
     sequelize,
     modelName: 'table',

@@ -30,6 +30,7 @@ require('./routes/orderUser.routes')(app);
 require('./routes/order_article.routes')(app);
 require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
+require('./routes/bookingGift.routes')(app);
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {

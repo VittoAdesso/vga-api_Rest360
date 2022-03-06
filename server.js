@@ -22,6 +22,7 @@ app.use(express.json());
 
 // requiero las rutas creadas 
 require('./routes/user.routes')(app);
+require('./routes/bill.routes')(app);
 require('./routes/table.routes')(app);
 require('./routes/menu.routes')(app);
 require('./routes/menu_article.routes')(app);
@@ -31,6 +32,7 @@ require('./routes/order_article.routes')(app);
 require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
 require('./routes/bookingGift.routes')(app);
+
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {

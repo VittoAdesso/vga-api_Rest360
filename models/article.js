@@ -36,12 +36,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    pvp: {
+    cost: {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    iva: {
-      type: DataTypes.INTEGER,
+    pvp: {
+      type: DataTypes.DECIMAL,
       allowNull: true
     },
     active: {

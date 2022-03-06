@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('./models'); 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -16,8 +16,6 @@ require('./routes/order.routes')(app);
 require('./routes/order_article.routes')(app);
 require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
-
-
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {

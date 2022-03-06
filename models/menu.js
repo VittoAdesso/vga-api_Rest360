@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   menu.init({
+    
     idArticle: {
       type: DataTypes.INTEGER,
       allowNull: false

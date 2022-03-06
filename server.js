@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// SET FOLDER TO SERVER STATIC ASSETS
+// SET FOLDER TO SERVER STATIC ASSETS --- if i don't write this, front give me an error to permissions cors and i cant get fecth 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Credentials', 'true');

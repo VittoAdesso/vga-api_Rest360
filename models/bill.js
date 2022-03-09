@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    idTable: {
+    idDestino: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -25,16 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
+    comensales: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    timeCook: {
-      type: DataTypes.DECIMAL,
       allowNull: true
     },
     cost: {
@@ -49,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    active: {
+    pagado: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },

@@ -34,31 +34,27 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     costNeto: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
     iva: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
     pvp: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
     estado: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    dia: {
+    day: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    day: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     hour: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: false
     },
   

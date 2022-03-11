@@ -45,7 +45,11 @@ module.exports = (sequelize, DataTypes) => {
     dateOfBirth: {
       type: DataTypes.INTEGER,
       // allowNull defaults to true
-    }
+    },
+    // avatar: {
+    //   type: DataTypes.VARCHAR(100),
+    //   // allowNull defaults to true
+    // }
  
     
   }, {

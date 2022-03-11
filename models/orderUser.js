@@ -25,11 +25,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    estado: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-  
+    // situacionPedido: {
+    //   type: DataTypes.VARCHAR(100),
+    //   allowNull: true
+    // },
+    
     
   }, {
     sequelize,

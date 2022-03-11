@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    idTable: {
+    idDestino: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -47,6 +47,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     estado: {
       type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    dia: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    day: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    hour: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
   

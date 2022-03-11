@@ -8,3 +8,15 @@ exports.findAll = async (req, res) => {
     res.send(orderArticle);
 }
 
+exports.findOne = async (req, res) => {
+
+    const { id } = req.params;
+    
+    const orderArticle = await OrderArticle.findOne({
+        where: {
+            id : id,
+        },
+    });
+
+    res.send(orderArticle);
+}

@@ -33,7 +33,7 @@ require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
 require('./routes/bookingGift.routes')(app);
 
-
+//config listen port 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Listen on port ${PORT}`)

@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // situacionPedido: {
-    //   type: DataTypes.VARCHAR(100),
-    //   allowNull: true
-    // },
+    situacionPedido: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     
     
   }, {

@@ -21,6 +21,7 @@ exports.findOne = async (req, res) => {
     res.send(users);
 }
 
+// method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request
     if (!req.body.idUser) {

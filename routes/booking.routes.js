@@ -3,7 +3,8 @@ module.exports = app => {
     const router = require('express').Router();
 
     router.get('/', bookings.findAll);
-    // router.get('/:id', menus.findOne);
+    // router.get('/:id', bookings.findOne);
+    router.post("/", bookings.create);
 
     app.use('/vga/booking', router);
 }

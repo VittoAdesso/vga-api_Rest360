@@ -27,6 +27,7 @@ exports.findOne = async (req, res) => {
     const { id } = req.params;
 
     try {
+     
         const articles = await Article.findOne({
             where: {
                 id : id,

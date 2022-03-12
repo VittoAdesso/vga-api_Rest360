@@ -29,7 +29,7 @@ exports.create = async (req, res) => {
       });
       return;
     }
-    // Create a Tutorial
+    // Create a new User
     const userNew = {
       idUser: req.body.idUser,
       userName: req.body.userName,
@@ -40,7 +40,8 @@ exports.create = async (req, res) => {
       dateOfBirth: req.body.dateOfBirth,
       published: req.body.published ? req.body.published : false
     };
-    // Save Tutorial in the database
+    
+    // Save user in the database
     User.create(userNew)
       .then(newUser => {
         res.send(newUser);

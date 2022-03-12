@@ -10,7 +10,7 @@ exports.findAll = async (req, res) => {
 
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.idReserva) {
+    if (!req.body.idGift) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
@@ -18,24 +18,20 @@ exports.create = async (req, res) => {
     }
     // Create a new Booking Gift
     const bookGifNew = {
-        idReserva: req.body.idReserva,
-        date: req.body.date,
-        hour: req.body.hour,
+        idGift: req.body.idGift,
+        codigo: req.body.codigo,
+        typeGift: req.body.typeGift,
         numPerson: req.body.numPerson,
-        name: req.body.name,
-        lastName: req.body.lastName,
-        phone: req.body.phone,
-        email: req.body.email,
-        allergic: req.body.allergic,
-        text: req.body.text,
-        ofertas: req.body.ofertas,
-        confirmacion: req.body.confirmacion,
+        cost: req.body.cost,
+        dateBuy: req.body.dateBuy,
+        dateConsume: req.body.dateConsume,
+        valid: req.body.valid,
 
       published: req.body.published ? req.body.published : false
     };
     
     // Save booking gift in the database
-    User.create(bookGifNew)
+    BookingGift.create(bookGifNew)
       .then(newBookGift => {
         res.send(newBookGift);
       })

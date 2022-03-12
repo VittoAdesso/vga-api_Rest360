@@ -4,6 +4,7 @@ module.exports = app => {
 
     router.get('/', bookingGift.findAll);
     // router.get('/:id', bookingGift.findOne);
+    router.post("/", bookingGift.create);
 
     app.use('/vga/bookingGift', router);
 }

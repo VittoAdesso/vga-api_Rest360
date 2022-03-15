@@ -8,15 +8,26 @@ exports.findAll = async (req, res) => {
     res.send(tables);
 }
 
+// findOne un id, controlando errores en case que no encuentre uno existente 
 exports.findOne = async (req, res) => {
 
-    const { id } = req.params;
-    
-    const table = await Table.findOne({
+    const id = req.params.id; 
+  
+    try { 
+      const table = await Table.findOne({
         where: {
-            id
+                id : id,
         },
-    });
-
-    res.send(table);
-}
+      });
+  
+    if (table) { 
+      return res.status(200).json(table);} 
+  
+      else { 
+        return res.status(404).json('No table found by this id'); } 
+    
+    } 
+  
+    catch (err) { return res.status(500).json(err); } 
+  
+  };

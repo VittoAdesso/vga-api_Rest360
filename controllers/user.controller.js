@@ -8,18 +8,29 @@ exports.findAll = async (req, res) => {
     res.send(users);
 }
 
+// findOne un id, controlando errores en case que no encuentre uno existente 
 exports.findOne = async (req, res) => {
 
-    const { id } = req.params;
-    
-    const users = await User.findOne({
-        where: {
-            id
-        },
+  const id = req.params.id; 
+
+  try { 
+    const user = await User.findOne({
+      where: {
+              id : id,
+      },
     });
 
-    res.send(users);
-}
+  if (user) { 
+    return res.status(200).json(user);} 
+
+    else { 
+      return res.status(404).json('No User found by this id'); } 
+  
+  } 
+
+  catch (err) { return res.status(500).json(err); } 
+
+};
 
 // method to have query to create a new one
 exports.create = async (req, res) => {

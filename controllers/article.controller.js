@@ -8,41 +8,31 @@ exports.findAll = async (req, res) => {
     res.send(articles);
 }
 
-// exports.findOne = async (req, res) => {
-
-//     const { id } = req.params;
-    
-//     const articles = await Article.findOne({
-//         where: {
-//             id : id,
-//         },
-//     });
-
-//     res.send(articles);
-// }
-
-
+// findOne un id, controlando errores en case que no encuentre uno existente 
 exports.findOne = async (req, res) => {
 
-    const { id } = req.params;
+  const id = req.params.id; 
 
-    try {
-     
-        const articles = await Article.findOne({
-            where: {
-                id : id,
-            },
-        });
-        
-        res.send(articles);
+  try { 
+    const article = await Article.findOne({
+      where: {
+              id : id,
+      },
+    });
 
-    } catch (error) {
-        res.status(500).send({
-            message: "Error retrieving Article with id=" + id
-        });
-    
-    }
-}
+  if (article) { 
+    return res.status(200).json(article);} 
+
+    else { 
+      return res.status(404).json('No Article found by this id'); } 
+  
+  } 
+
+  catch (err) { return res.status(500).json(err); } 
+
+};
+
+
 
 // method to have query to create a new one
 exports.create = async (req, res) => {

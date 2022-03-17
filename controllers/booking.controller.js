@@ -1,12 +1,15 @@
 const db = require('../models');
 const Booking = db.booking;
 
+// to fin all and get all items
 exports.findAll = async (req, res) => {
 
     const bookings = await Booking.findAll();
 
     res.send(bookings);
 }
+
+// to create a new one 
 
 exports.create = async (req, res) => {
     // Validate request
@@ -43,6 +46,56 @@ exports.create = async (req, res) => {
         res.status(500).send({
           message:
             err.message || "Some error occurred while creating the new booking."
+        });
+      });
+  };
+
+  //to update booking 
+
+  exports.update = (req, res) => {
+    const id = req.params.id;
+    Booking.update(req.body, {
+      where: { id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "Booking was updated successfully."
+          });
+        } else {
+          res.send({
+            message: `Cannot update Booking with id=${id}. Maybe Booking was not found or req.body is empty!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error updating Booking with id=" + id
+        });
+      });
+  };
+
+  // to delete one
+  
+  exports.delete = (req, res) => {
+    const id = req.params.id;
+    Booking.destroy({
+      where: { id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "Booking was deleted successfully!"
+          });
+        } else {
+          res.send({
+            message: `Cannot delete Booking with id=${id}. Maybe Booking was not found!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Booking with id=" + id
         });
       });
   };

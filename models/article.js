@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      
     }
   }
+
+  // genero el modelo, tipos de datos
   article.init({
     
     idArticle: {

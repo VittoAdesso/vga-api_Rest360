@@ -4,9 +4,11 @@ module.exports = app => {
 
     const router = require('express').Router();
 
+    //to find all
     router.get('/', bill.findAll);
-    // router.get('/:id', bill.findOne);
+    // to fin one bill with id
+    router.get('/:id', bill.findOne);
    
-
+// route i want to use 
     app.use('/vga/bill', router);
 }

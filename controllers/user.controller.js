@@ -25,11 +25,8 @@ exports.findOne = async (req, res) => {
 
     else { 
       return res.status(404).json('No User found by this id'); } 
-  
-  } 
-
+    } 
   catch (err) { return res.status(500).json(err); } 
-
 };
 
 // method to have query to create a new one

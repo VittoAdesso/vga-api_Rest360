@@ -4,7 +4,8 @@ module.exports = app => {
     const router = require('express').Router();
 
     router.get('/', orders.findAll);
-    // router.get('/:id', menus.findOne);
-
+    // remember you want to find an other article witch one is not an id 
+    router.get('/:idOrder', orders.findOne);
+    
     app.use('/vga/orders', router);
 }

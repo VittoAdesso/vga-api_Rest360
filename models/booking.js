@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     hour: {
-      type: DataTypes.DATE(6),
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     numPerson: {
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     email: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     allergic: {
@@ -66,7 +66,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   
-    
   }, {
     sequelize,
     modelName: 'booking',

@@ -22,11 +22,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     codigo: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     typeGift: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     numPersonas: {

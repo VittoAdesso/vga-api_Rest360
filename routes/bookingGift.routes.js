@@ -4,7 +4,9 @@ module.exports = app => {
 
     router.get('/', bookingGift.findAll);
     // router.get('/:id', bookingGift.findOne);
-    router.post("/", bookingGift.create);
+
+    //route to register route a new one
+    router.post("/register", bookingGift.create);
 
     app.use('/vga/bookingGift', router);
 }

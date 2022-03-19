@@ -4,10 +4,13 @@ module.exports = app => {
 
     const router = require('express').Router();
 
+    // to find all 
     router.get('/', articles.findAll);
+    //to find one 
     router.get('/:id', articles.findOne);
-    router.post("/", articles.create);
+    //route to register route a new one
+    router.post("/register", articles.create);
 
-
+// gral route
     app.use('/vga/articles', router);
 }

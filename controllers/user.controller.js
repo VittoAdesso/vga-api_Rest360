@@ -64,4 +64,29 @@ exports.create = async (req, res) => {
       });
   };
 
-  
+
+// function to login and comprueba user exist
+exports.login = async (req, res) => {
+
+  const userName = req.body.userName;
+  const password = req.body.password;
+
+  try {
+    const user = await User.findOne({
+      where: {
+        userName : userName,
+        password : password,
+      },
+    });
+
+  if (user) { 
+    return res.status(200).json(user);} 
+
+    else { 
+      return res.status(404).json('No User found, please try again'); } 
+    
+  } catch (err) {
+
+  }
+}
+

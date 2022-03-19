@@ -4,9 +4,9 @@ const OrderArticle = db.orderArticle;
 //FINDING ALL
 exports.findAll = async (req, res) => {
 
-    const orderArticles = await OrderArticle.findAll();
+  const orders = await OrderArticle.findAll();
 
-    res.send(orderArticles);
+  res.send(orders);
 }
 
 // findOne un id, controlando errores en case que no encuentre uno existente 

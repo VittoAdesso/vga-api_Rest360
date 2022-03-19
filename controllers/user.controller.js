@@ -1,10 +1,11 @@
 const db = require('../models');
 const User = db.user;
 
+// const jwt = require("jsonwebtoken");
+// const bcrypt = require("bcrypt");
+
 exports.findAll = async (req, res) => {
-
     const users = await User.findAll();
-
     res.send(users);
 }
 
@@ -16,7 +17,7 @@ exports.findOne = async (req, res) => {
   try { 
     const user = await User.findOne({
       where: {
-              id : id,
+        id : id,
       },
     });
 
@@ -70,7 +71,6 @@ exports.login = async (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-
   try {
     const user = await User.findOne({
       where: {
@@ -81,12 +81,48 @@ exports.login = async (req, res) => {
 
   if (user) { 
     return res.status(200).json(user);} 
-
     else { 
       return res.status(404).json('No User found, please try again'); } 
-    
-  } catch (err) {
+      } catch (err) {
 
   }
 }
 
+
+// exports.login = async (req, res, next) => {
+
+//     let getUser;
+//     User.findOne({
+//         email: req.body.email
+//     }).then(user => {
+//         if (!user) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         getUser = user;
+//         return bcrypt.compare(req.body.password, user.password);
+//     }).then(response => {
+//         if (!response) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         let jwtToken = jwt.sign({
+//             email: getUser.email,
+//             id: getUser.id
+//         }, "longer-secret-is-better", {
+//             expiresIn: "1h"
+//         });
+//         res.status(200).json({
+//             token: jwtToken,
+//             expiresIn: 3600,
+//             id: getUser.id
+            
+//         });
+//     }).catch(err => {
+//         return res.status(401).json({
+//             message: "Authentication failed"
+//         });
+//     });
+// }

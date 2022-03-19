@@ -49,9 +49,11 @@ module.exports = (sequelize, DataTypes) => {
     avatar: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    roll: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
- 
-    
   }, {
     sequelize,
     modelName: 'user',

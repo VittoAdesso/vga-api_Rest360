@@ -68,13 +68,13 @@ exports.create = async (req, res) => {
 // function to login and comprueba user exist
 exports.login = async (req, res) => {
 
-  const userName = req.body.userName;
+  const email = req.body.email;
   const password = req.body.password;
 
   try {
     const user = await User.findOne({
       where: {
-        userName : userName,
+        email : email,
         password : password,
       },
     });

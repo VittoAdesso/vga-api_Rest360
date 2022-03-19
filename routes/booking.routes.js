@@ -8,5 +8,9 @@ module.exports = app => {
     //route to register route a new one
     router.post("/register", bookings.create);
 
+     //route to update an exist booking
+    router.post("/updateBooking/:id", bookings.update);
+
+    
     app.use('/vga/booking', router);
 }

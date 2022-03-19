@@ -57,8 +57,8 @@ exports.create = async (req, res) => {
     Booking.update(req.body, {
       where: { id: id }
     })
-      .then(num => {
-        if (num == 1) {
+      .then(book => {
+        if (book == 1) {
           res.send({
             message: "Booking was updated successfully."
           });
@@ -82,8 +82,8 @@ exports.create = async (req, res) => {
     Booking.destroy({
       where: { id: id }
     })
-      .then(num => {
-        if (num == 1) {
+      .then(book => {
+        if (book == 1) {
           res.send({
             message: "Booking was deleted successfully!"
           });

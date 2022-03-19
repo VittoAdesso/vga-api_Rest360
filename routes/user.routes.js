@@ -9,6 +9,9 @@ module.exports = app => {
     // create a new user
     router.post("/register", users.create);
 
+    //route to update an exist user
+    router.post("/updateUser/:id", users.update);
+
     // make login
     router.post("/login", users.login);
 

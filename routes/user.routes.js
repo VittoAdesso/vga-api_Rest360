@@ -12,7 +12,6 @@ module.exports = app => {
     // make login
     router.post("/login", users.login);
 
-
     //define route gral
     app.use('/vga/users', router);
 }

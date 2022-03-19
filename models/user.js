@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       // allowNull defaults to true
     },
     dateOfBirth: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATEONLY,
       // allowNull defaults to true
     },
     avatar: {

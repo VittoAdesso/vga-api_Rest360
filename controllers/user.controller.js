@@ -65,7 +65,7 @@ exports.create = async (req, res) => {
   };
 
 
-// function to login and comprueba user exist
+// function to login and comprueba user exist (modo básico sin jwt ni bcrypt)
 exports.login = async (req, res) => {
 
   const email = req.body.email;

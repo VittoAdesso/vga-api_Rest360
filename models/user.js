@@ -28,23 +28,23 @@ module.exports = (sequelize, DataTypes) => {
     },
     lastName: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
+      allowNull: false
     },
     password: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
+      allowNull: true
     },
     email: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
+      allowNull: true
     },
     dateOfBirth: {
       type: DataTypes.DATEONLY,
-      // allowNull defaults to true
+      allowNull: true
     },
     avatar: {
       type: DataTypes.STRING,

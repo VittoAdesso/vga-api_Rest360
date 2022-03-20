@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   bookingGift.init({
 
-    idGift: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     codigo: {
       type: DataTypes.STRING,
       allowNull: false,

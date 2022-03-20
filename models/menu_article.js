@@ -16,17 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   menuArticle.init({
-    
-    idMenu: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    idArticle: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
   
-    
   }, {
     sequelize,
     modelName: 'menuArticle',

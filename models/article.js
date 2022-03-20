@@ -12,13 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  // genero el modelo, tipos de datos
+  // generate the model  modelo, types
   article.init({
     
-    idArticle: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -51,63 +47,63 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    active: {
+    isActive: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    gluten: {
+    hasGluten: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    crustaceos: {
+    hasCrustaceos: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    egg: {
+    hasEgg: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    fish: {
+    hasFish: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    soja: {
+    hasSoja: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    milk: {
+    hasMilk: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    fructose: {
+    hasFructose: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    mustard: {
+    hasMustard: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    apio: {
+    hasApio: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    molusco: {
+    hasMolusco: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    altramuces: {
+    hasAltramuces: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    sesamo: {
+    hasSesamo: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    sulfito: {
+    hasSulfito: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    cacahuate: {
+    hasCacahuate: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     }

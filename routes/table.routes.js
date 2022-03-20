@@ -5,5 +5,5 @@ module.exports = app => {
     router.get('/', tables.findAll);
     router.get('/:id', tables.findOne);
 
-    app.use('/vga/tables', router);
+    app.use('/api/tables', router);
 }

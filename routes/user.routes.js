@@ -4,8 +4,13 @@ module.exports = app => {
 
     //find all users
     router.get('/', users.findAll);
+
     // find a one user 
     router.get('/:id', users.findOne);
+
+    // to fin by id and orders who user ask
+    router.get('/:id/orders', users.findOne);
+
     // create a new user
     router.post("/register", users.create);
 
@@ -16,9 +21,9 @@ module.exports = app => {
     router.delete("/deleteUser/:idUser", users.delete);
 
     // make login
-    router.post("/login", users.login);
+    router.post("/signin/", users.login);
 
     //define route gral
-    app.use('/vga/users', router);
+    app.use('/api/users', router);
 }
 

@@ -21,7 +21,6 @@ exports.create = async (req, res) => {
     }
     // Create a new Booking
     const bookingNew = {
-      idReserva: req.body.idReserva,
       date: req.body.date,
       hour: req.body.hour,
       numPerson: req.body.numPerson,
@@ -29,10 +28,10 @@ exports.create = async (req, res) => {
       lastName: req.body.lastName,
       phone: req.body.phone,
       email: req.body.email,
-      allergic: req.body.allergic,
+      isAllergic: req.body.allergic,
       text: req.body.text,
-      ofertas: req.body.ofertas,
-      confirmacion: req.body.confirmacion,
+      disccount: req.body.ofertas,
+      confirmation: req.body.confirmacion,
 
       published: req.body.published ? req.body.published : false
     };
@@ -55,7 +54,7 @@ exports.create = async (req, res) => {
   exports.update = (req, res) => {
     const id = req.params.id;
     Booking.update(req.body, {
-      where: { id: id }
+      where: { id }
     })
       .then(book => {
         if (book == 1) {
@@ -80,7 +79,7 @@ exports.create = async (req, res) => {
   exports.delete = (req, res) => {
     const id = req.params.id;
     Booking.destroy({
-      where: { id: id }
+      where: { id }
     })
       .then(book => {
         if (book == 1) {

@@ -8,7 +8,7 @@ exports.findAll = async (req, res) => {
     res.send(tables);
 }
 
-// findOne un id, controlando errores en case que no encuentre uno existente 
+// findOne id, controlling if dont find one
 exports.findOne = async (req, res) => {
 
     const id = req.params.id; 
@@ -16,7 +16,7 @@ exports.findOne = async (req, res) => {
     try { 
       const table = await Table.findOne({
         where: {
-                id : id,
+                id 
         },
       });
   

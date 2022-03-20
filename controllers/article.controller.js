@@ -18,7 +18,7 @@ exports.findOne = async (req, res) => {
   try { 
     const article = await Article.findOne({
       where: {
-              id : id,
+              id
       },
     });
 
@@ -47,7 +47,6 @@ exports.create = async (req, res) => {
     }
     // Create a new User
     const articleNew = {
-      idArticle: req.body.idArticle,
       name: req.body.name,
       category: req.body.category,
       type: req.body.type,
@@ -56,21 +55,21 @@ exports.create = async (req, res) => {
       cost: req.body.cost,
       iva: req.body.iva,
       pvp: req.body.pvp,
-      active: req.body.active,
-      gluten: req.body.gluten,
-      crustaceos: req.body.crustaceos,
-      egg: req.body.egg,
-      fish: req.body.fish,
-      soja: req.body.soja,
-      milk: req.body.milk,
-      fructose: req.body.fructose,
-      mustard: req.body.mustard,
-      apio: req.body.apio,
-      molusco: req.body.molusco,
-      altramuces: req.body.altramuces,
-      sesamo: req.body.sesamo,
-      sulfito: req.body.sulfito,
-      cacahuate: req.body.cacahuate,
+      isActive: req.body.active,
+      hasGluten: req.body.gluten,
+      hasCrustaceos: req.body.crustaceos,
+      hasEgg: req.body.egg,
+      hasFish: req.body.fish,
+      hasSoja: req.body.soja,
+      hasMilk: req.body.milk,
+      hasFructose: req.body.fructose,
+      hasMustard: req.body.mustard,
+      hasApio: req.body.apio,
+      hasMolusco: req.body.molusco,
+      hasAltramuces: req.body.altramuces,
+      hasSesamo: req.body.sesamo,
+      hasSulfito: req.body.sulfito,
+      hasCacahuate: req.body.cacahuate,
 
       published: req.body.published ? req.body.published : false
     };

@@ -8,16 +8,19 @@ module.exports = (sequelize, DataTypes) => {
   class user extends Model {
   
     static associate(models) {
-    
+
+      // have many orders 
+      models.user.hasMany(models.order, {
+        // i find with PK
+        foreignKey: "userId",
+        // name of association == as IS COMPULSORY , plural
+        as: "orders",
+      })
     }
   }
   
   user.init({
 
-    idUser: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     userName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -50,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    roll: {
+    rol: {
       type: DataTypes.STRING,
       allowNull: true
     }

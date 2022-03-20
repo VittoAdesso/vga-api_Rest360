@@ -1,5 +1,7 @@
 const db = require('../models');
 const User = db.user;
+//i have to import incluede findOne
+const Order = db.order;
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -17,8 +19,12 @@ exports.findOne = async (req, res) => {
 
   try { 
     const user = await User.findOne({
+      include: [{
+        model: Order,
+        as: "orders"
+    }],
       where: {
-        id : id,
+        id 
       },
     });
 
@@ -42,7 +48,7 @@ exports.create = async (req, res) => {
     }
     // Create a new User
     const userNew = {
-      idUser: req.body.idUser,
+   
       userName: req.body.userName,
       firstName: req.body.firstName,
       lastName:req.body.lastName,
@@ -50,6 +56,7 @@ exports.create = async (req, res) => {
       phone: req.body.phone,
       email: req.body.email,
       dateOfBirth: req.body.dateOfBirth,
+
       published: req.body.published ? req.body.published : false
     };
     
@@ -71,7 +78,7 @@ exports.create = async (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
     User.update(req.body, {
-      where: { id: id }
+      where: { id }
     })
       .then(book => {
         if (book == 1) {
@@ -96,7 +103,9 @@ exports.delete = (req, res) => {
     const idUser = req.params.idUser;
     
     User.destroy({
-      where: { idUser: idUser }
+
+      // i dont have to write where { id : id} because in js while doesnt have an other valor, i dont have to duplicate 
+      where: { idUser }
     })
       .then(user => {
         if (user == 1) {
@@ -138,11 +147,59 @@ exports.delete = (req, res) => {
 //   }
 // }
 
+
+// // 1 manera 
+// exports.login = async (req, res, next) => {
+
+//     let getUser;
+//     User.findOne(req.body, {
+
+//       where: {
+//         email: req.body.email,
+//         password: req.body.password
+//       }
+        
+//     }).then(user => {
+//         if (!user) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         getUser = user;
+//         return bcrypt.compare(req.body.password, user.password);
+//     }).then(response => {
+//         if (!response) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         let jwtToken = jwt.sign({
+//             email: getUser.email,
+//             id: getUser.id
+//         }, "longer-secret-is-better", {
+//             expiresIn: "1h"
+//         });
+//         res.status(200).json({
+//             token: jwtToken,
+//             expiresIn: 3600,
+//             id: getUser.id
+            
+//         });
+//     }).catch(err => {
+//         return res.status(401).json({
+//             message: "Authentication failed"
+//         });
+//     });
+// }
+
+
+// 2 manera 
 exports.login = async (req, res, next) => {
 
     let getUser;
     User.findOne({
-        email: req.body.email
+      email: req.body.email,
+        
     }).then(user => {
         if (!user) {
             return res.status(401).json({

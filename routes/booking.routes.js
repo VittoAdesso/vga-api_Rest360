@@ -14,5 +14,5 @@ module.exports = app => {
     // route to delete one id booking
     router.delete("/deleteBooking/:id", bookings.delete);
     
-    app.use('/vga/booking', router);
+    app.use('/api/booking', router);
 }

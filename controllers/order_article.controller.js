@@ -9,14 +9,14 @@ exports.findAll = async (req, res) => {
   res.send(orders);
 }
 
-// findOne un id, controlando errores en case que no encuentre uno existente 
+// findOne  id, controllin errors in case dont find one  
 exports.findOne = async (req, res) => {
 
     const id = req.params.id; 
     try { 
       const orderId = await OrderArticle.findOne({
         where: {
-                id : id,
+                id 
         },
       });
   
@@ -29,14 +29,14 @@ exports.findOne = async (req, res) => {
     catch (err) { return res.status(500).json(err); } 
 };
 
-  // FINDall idOrder, el cuál no es Pk, ni first column in msql, is another one , controlando errores en case que no encuentre uno existente (ojo, que tengan el mismo idOrder)
+  // FINDall idOrder, is Pk, no first column in msql, is another one , controlling errors in case dont find an exist one (eye, idOrder the samne)
   exports.findAll = async (req, res) => {
 
     const idOrder = req.params.idOrder; 
     try { 
       const order = await OrderArticle.findAll({
         where: {
-                idOrder : idOrder,
+                idOrder 
         },
       });
   

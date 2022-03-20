@@ -18,7 +18,6 @@ exports.create = async (req, res) => {
     }
     // Create a new Booking Gift
     const bookGifNew = {
-        idGift: req.body.idGift,
         codigo: req.body.codigo,
         typeGift: req.body.typeGift,
         numPerson: req.body.numPerson,

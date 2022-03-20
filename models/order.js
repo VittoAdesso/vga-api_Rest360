@@ -12,25 +12,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // singular
+      models.order.belongsTo(models.user, {
+        foreignKey: "userId",
+        // name of association == as IS COMPULSORY, singular
+        as: "user",
+      })
     }
   }
   order.init({
     
-    idOrder: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    idDestino: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    idUser: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    numPerson: {
-      type: DataTypes.STRING,
+    peopleCount: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     costNeto: {
@@ -45,11 +38,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
-    estado: {
+    status: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    day: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false
     },

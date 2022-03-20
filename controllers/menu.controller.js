@@ -1,5 +1,6 @@
 const db = require('../models');
 const Menu = db.menu;
+const Article = db.article;
 
 exports.findAll = async (req, res) => {
 
@@ -8,15 +9,19 @@ exports.findAll = async (req, res) => {
     res.send(menus);
 }
 
-// exports.findOne = async (req, res) => {
+exports.findOne = async (req, res) => {
 
-//     const { id } = req.params;
+    const { id } = req.params;
     
-//     const menus = await Menu.findOne({
-//         where: {
-//             id
-//         },
-//     });
+    const menus = await Menu.findOne({
+        include: [{
+            model: Article,
+            as: "articles"
+        }],
+        where: {
+            id 
+        },
+    });
 
-//     res.send(menus);
-// }
+    res.send(menus);
+}

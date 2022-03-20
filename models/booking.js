@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   booking.init({
 
-    idReserva: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false
@@ -49,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    allergic: {
+    isAllergic: {
       type: DataTypes.STRING,
       allowNull: true
     },
@@ -57,11 +53,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    ofertas: {
+    disccount: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    confirmacion: {
+    confirmation: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     }

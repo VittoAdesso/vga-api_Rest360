@@ -8,14 +8,14 @@ exports.findAll = async (req, res) => {
     res.send(bills);
 }
 
-// findOne un id, controlando errores en case que no encuentre uno existente 
+// findOne  id, controlling errors in case dont found and existe one 
 exports.findOne = async (req, res) => {
 
     const id = req.params.id; 
     try { 
     const bill = await Bill.findOne({
         where: {
-            id : id,
+            id 
         },
     });
 

@@ -37,11 +37,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
-    time: {
+    cookTime: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    estado: {
+    status: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },

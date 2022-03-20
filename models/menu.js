@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   menu.init({
     
-    name: {
+    category: {
       type: DataTypes.STRING,
       allowNull: false
     },

@@ -68,7 +68,7 @@ exports.create = async (req, res) => {
 
    //to update booking 
 
-   exports.update = (req, res) => {
+exports.update = (req, res) => {
     const id = req.params.id;
     User.update(req.body, {
       where: { id: id }
@@ -91,6 +91,30 @@ exports.create = async (req, res) => {
       });
   };
 
+  // to delete one
+exports.delete = (req, res) => {
+    const idUser = req.params.idUser;
+    
+    User.destroy({
+      where: { idUser: idUser }
+    })
+      .then(user => {
+        if (user == 1) {
+          res.send({
+            message: "User was deleted successfully!"
+          });
+        } else {
+          res.send({
+            message: `Cannot delete User with idUser=${idUser}. Maybe User was not found!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete User with idUser=" + idUser
+        });
+      });
+  };
 
 // function to login and comprueba user exist (modo básico sin jwt ni bcrypt)
 // exports.login = async (req, res) => {

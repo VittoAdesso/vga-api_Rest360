@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     hour: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: false
     },
     numPerson: {

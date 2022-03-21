@@ -31,6 +31,7 @@ require('./routes/order_article.routes')(app);
 require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
 require('./routes/bookingGift.routes')(app);
+require('./routes/contact.routes')(app);
 
 //config listen port 
 db.sequelize.sync().then(() => {

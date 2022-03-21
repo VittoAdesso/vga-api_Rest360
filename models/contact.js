@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     hasDiscount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
     isContacted: {

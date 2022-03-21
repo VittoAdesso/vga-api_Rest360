@@ -15,7 +15,7 @@ module.exports = app => {
     router.post("/updateContact/:id", contact.update);
 
      //route to update an exist contact
-    router.delete("/deleteContact/:idUser", contact.delete);
+    router.delete("/deleteContact/:id", contact.delete);
 
     //define route gral
     app.use('/api/contact', router);

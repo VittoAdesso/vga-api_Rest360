@@ -17,34 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   orderArticleTwo.init({
     
-    // idOrder: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // idArticle: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // costNeto: {
-    //   type: DataTypes.DECIMAL(6,2),
-    //   allowNull: false
-    // },
-    // iva: {
-    //   type: DataTypes.DECIMAL(6,2),
-    //   allowNull: false
-    // },
-    // pvp: {
-    //   type: DataTypes.DECIMAL(6,2),
-    //   allowNull: false
-    // },
-    // cookTime: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
-    // status: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // },
           
   }, {
     sequelize,

@@ -1,6 +1,7 @@
 const db = require('../models');
 const Order = db.order;
 const Article = db.article;
+const User = db.user;
 
 exports.findAll = async (req, res) => {
 
@@ -19,6 +20,9 @@ exports.findOne = async (req, res) => {
         include: [{
             model: Article,
             as: "articles"
+        }, {
+            model: User,
+            as: "user"
         }],
         where: {
             id 

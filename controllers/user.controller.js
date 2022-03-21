@@ -125,7 +125,7 @@ exports.delete = (req, res) => {
       });
   };
 
-// function to login and comprueba user exist (modo básico sin jwt ni bcrypt)
+// function to login and verify user exist (basic mode without jwt & bcrypt)
 exports.login = async (req, res) => {
 
   const email = req.body.email;
@@ -147,7 +147,7 @@ exports.login = async (req, res) => {
 }
 
 
-// // 1 manera 
+// // 1 option 
 // exports.login = async (req, res, next) => {
 
 //     let getUser;
@@ -192,19 +192,20 @@ exports.login = async (req, res) => {
 // }
 
 
-// // 2 manera 
+// // 2 option 
 // exports.login = async (req, res, next) => {
 
 //     let getUser;
 //     User.findOne({
 //       where : {
 //         email: req.body.email,
+//         password: req.body.password,
 //       }
         
 //     }).then(user => {
 //         if (!user) {
 //             return res.status(401).json({
-//                 message: "Authentication failed"
+//                 message: "Authentication failed - user not found"
 //             });
 //         }
 //         getUser = user;
@@ -212,7 +213,7 @@ exports.login = async (req, res) => {
 //     }).then(response => {
 //         if (!response) {
 //             return res.status(401).json({
-//                 message: "Authentication failed"
+//                 message: "Authentication and response failed"
 //             });
 //         }
 //         let jwtToken = jwt.sign({

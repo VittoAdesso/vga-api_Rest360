@@ -73,7 +73,7 @@ exports.create = async (req, res) => {
   };
   
   // Save order in the database
-  Order.create(newOrderArticle)
+  OrderArticle.create(newOrderArticle)
   .then(newOarticleClient => {
       res.send(newOarticleClient);
   })

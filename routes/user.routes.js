@@ -8,7 +8,7 @@ module.exports = app => {
     // find a one user 
     router.get('/:id', users.findOne);
 
-    // to fin by id and orders who user ask
+    // to find by id and orders who user ask (association)
     router.get('/:id/orders', users.findOne);
 
     // create a new user

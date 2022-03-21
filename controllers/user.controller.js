@@ -12,7 +12,7 @@ exports.findAll = async (req, res) => {
     res.send(users);
 }
 
-// findOne un id, controlando errores en case que no encuentre uno existente 
+// findOne by id, controlling errors in case dont find an exist one
 exports.findOne = async (req, res) => {
 
   const id = req.params.id; 

@@ -28,6 +28,7 @@ require('./routes/menu.routes')(app);
 require('./routes/menu_article.routes')(app);
 require('./routes/order.routes')(app);
 require('./routes/order_article.routes')(app);
+require('./routes/order_article_two.routes')(app);
 require('./routes/article.routes')(app);
 require('./routes/booking.routes')(app);
 require('./routes/bookingGift.routes')(app);

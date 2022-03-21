@@ -1,5 +1,6 @@
 const db = require('../models');
 const Order = db.order;
+const Article = db.article;
 
 exports.findAll = async (req, res) => {
 
@@ -9,12 +10,16 @@ exports.findAll = async (req, res) => {
 }
 
 
-// findOne id, controlling errors in case dont find an exist one
+// findOne id, controlling errors in case dont find an exist one, BUT IN THIS ONE, YOU INCLUDED THE ARTCILE BECAUSE I NEED IT
 exports.findOne = async (req, res) => {
 
     const id = req.params.id; 
     try { 
     const order = await Order.findOne({
+        include: [{
+            model: Article,
+            as: "articles"
+        }],
         where: {
             id 
         },
@@ -27,6 +32,26 @@ exports.findOne = async (req, res) => {
         } 
     catch (err) { return res.status(500).json(err); } 
 };
+
+// // findOne id, controlling errors in case dont find an exist one (WITH OUT ASSOCIATION)
+// exports.findOne = async (req, res) => {
+
+//     const id = req.params.id; 
+//     try { 
+//     const order = await Order.findOne({
+//         where: {
+//             id 
+//         },
+//     });
+
+//     if (order) { 
+//     return res.status(200).json(order);} 
+//         else { 
+//         return res.status(404).json('No order found by this id'); } 
+//         } 
+//     catch (err) { return res.status(500).json(err); } 
+// };
+
 
 // method to create a new one
 exports.create = async (req, res) => {

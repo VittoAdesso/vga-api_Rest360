@@ -4,6 +4,8 @@ const {
   Model
 } = require('sequelize');
 
+const {article} = require('../models/article')
+
 module.exports = (sequelize, DataTypes) => {
   class order extends Model {
     /**
@@ -17,6 +19,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "userId",
         // name of association == as IS COMPULSORY, singular
         as: "user",
+      }),
+
+      models.order.belongsToMany(models.article, {
+        through: models.orderArticleTwo,
+        foreignKey: "orderId",
+        otherKey: "articleId",
+        // name of association = AS IS COMPULSORY IS PLURAL N N
+        as: "articles",
+        onDelete: "cascade"
       })
     }
   }

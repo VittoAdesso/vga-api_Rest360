@@ -3,8 +3,8 @@ const User = db.user;
 //i have to import incluede findOne
 const Order = db.order;
 
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+// const jwt = require("jsonwebtoken");
+// const bcrypt = require("bcrypt");
 
 // to find all users 
 exports.findAll = async (req, res) => {
@@ -126,26 +126,25 @@ exports.delete = (req, res) => {
   };
 
 // function to login and comprueba user exist (modo básico sin jwt ni bcrypt)
-// exports.login = async (req, res) => {
+exports.login = async (req, res) => {
 
-//   const email = req.body.email;
-//   const password = req.body.password;
-//   try {
-//     const user = await User.findOne({
-//       where: {
-//         email : email,
-//         password : password,
-//       },
-//     });
+  const email = req.body.email;
+  const password = req.body.password;
+  try {
+    const user = await User.findOne({
+      where: {
+        email : email,
+        password : password,
+      },
+    });
 
-//   if (user) { 
-//     return res.status(200).json(user);} 
-//     else { 
-//       return res.status(404).json('No User found, please try again'); } 
-//       } catch (err) {
-
-//   }
-// }
+  if (user) { 
+    return res.status(200).json(user);} 
+    else { 
+      return res.status(404).json('No User found, please try again'); } 
+      } catch (err) {
+  }
+}
 
 
 // // 1 manera 
@@ -193,42 +192,44 @@ exports.delete = (req, res) => {
 // }
 
 
-// 2 manera 
-exports.login = async (req, res, next) => {
+// // 2 manera 
+// exports.login = async (req, res, next) => {
 
-    let getUser;
-    User.findOne({
-      email: req.body.email,
+//     let getUser;
+//     User.findOne({
+//       where : {
+//         email: req.body.email,
+//       }
         
-    }).then(user => {
-        if (!user) {
-            return res.status(401).json({
-                message: "Authentication failed"
-            });
-        }
-        getUser = user;
-        return bcrypt.compare(req.body.password, user.password);
-    }).then(response => {
-        if (!response) {
-            return res.status(401).json({
-                message: "Authentication failed"
-            });
-        }
-        let jwtToken = jwt.sign({
-            email: getUser.email,
-            id: getUser.id
-        }, "longer-secret-is-better", {
-            expiresIn: "1h"
-        });
-        res.status(200).json({
-            token: jwtToken,
-            expiresIn: 3600,
-            id: getUser.id
+//     }).then(user => {
+//         if (!user) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         getUser = user;
+//         return bcrypt.compare(req.body.password, user.password);
+//     }).then(response => {
+//         if (!response) {
+//             return res.status(401).json({
+//                 message: "Authentication failed"
+//             });
+//         }
+//         let jwtToken = jwt.sign({
+//             email: getUser.email,
+//             id: getUser.id
+//         }, "longer-secret-is-better", {
+//             expiresIn: "1h"
+//         });
+//         res.status(200).json({
+//             token: jwtToken,
+//             expiresIn: 3600,
+//             id: getUser.id
             
-        });
-    }).catch(err => {
-        return res.status(401).json({
-            message: "Authentication failed"
-        });
-    });
-}
+//         });
+//     }).catch(err => {
+//         return res.status(401).json({
+//             message: "Authentication failed"
+//         });
+//     });
+// }

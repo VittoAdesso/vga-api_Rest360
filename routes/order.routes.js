@@ -7,6 +7,9 @@ module.exports = app => {
     
     //TO FIND BY ID
     router.get('/:id', orders.findOne);
+
+    // create a new order
+    router.post("/create", orders.create);
     
     app.use('/api/orders', router);
 }

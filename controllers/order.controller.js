@@ -28,3 +28,37 @@ exports.findOne = async (req, res) => {
     catch (err) { return res.status(500).json(err); } 
 };
 
+// method to create a new one
+exports.create = async (req, res) => {
+    // Validate request
+    if (!req.body.id) {
+    res.status(400).send({
+        message: "Content can not be empty!"
+    });
+    return;
+    }
+    // Create a new order
+    const newOrder = {
+
+        peopleCount: req.body.peopleCount,
+        costNeto: req.body.costNeto,
+        iva:req.body.iva,
+        pvp: req.body.pvp,
+        status: req.body.status,
+        date: req.body.date,
+
+        published: req.body.published ? req.body.published : false
+    };
+    
+    // Save order in the database
+    Order.create(newOrder)
+    .then(newOrderClient => {
+        res.send(newOrderClient);
+    })
+    .catch(err => {
+        res.status(500).send({
+        message:
+            err.message || "Some error occurred while creating the new Order."
+        });
+    });
+};

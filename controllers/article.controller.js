@@ -18,7 +18,7 @@ exports.findOne = async (req, res) => {
   try { 
     const article = await Article.findOne({
       where: {
-              id
+        id
       },
     });
 

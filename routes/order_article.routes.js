@@ -11,6 +11,9 @@ module.exports = app => {
     // remember you want to find an other article witch one is not an id    
     router.get('/order/:idOrder', orderArticle.findAll);
 
+    // create a new orderArticle
+    router.post("/createNewOrderArticle", orderArticle.create);
+
     // GRAL ROUTE
     app.use('/api/orderArticles', router);
 }

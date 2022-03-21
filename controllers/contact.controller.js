@@ -39,7 +39,7 @@ exports.create = async (req, res) => {
     }
     // Create a new Contact
     const newContact = {
-   
+
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       phone:req.body.phone,

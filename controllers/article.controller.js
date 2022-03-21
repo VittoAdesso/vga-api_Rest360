@@ -34,8 +34,6 @@ exports.findOne = async (req, res) => {
 
 };
 
-
-
 // method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request

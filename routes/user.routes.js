@@ -15,7 +15,7 @@ module.exports = app => {
     router.post("/register", users.create);
 
     //route to update an exist user
-    router.post("/updateUser/:id", users.update);
+    router.put("/updateUser/:id", users.update);
 
      //route to update an exist user
     router.delete("/deleteUser/:idUser", users.delete);

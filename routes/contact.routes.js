@@ -12,7 +12,7 @@ module.exports = app => {
     router.post("/createContact", contact.create);
 
     //route to update an exist contact
-    router.post("/updateContact/:id", contact.update);
+    router.put("/updateContact/:id", contact.update);
 
      //route to update an exist contact
     router.delete("/deleteContact/:id", contact.delete);

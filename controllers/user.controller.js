@@ -100,12 +100,12 @@ exports.update = (req, res) => {
 
   // to delete one
 exports.delete = (req, res) => {
-    const idUser = req.params.idUser;
+    const id = req.params.id;
     
     User.destroy({
 
       // i dont have to write where { id : id} because in js while doesnt have an other valor, i dont have to duplicate 
-      where: { idUser }
+      where: { id }
     })
       .then(user => {
         if (user == 1) {
@@ -114,13 +114,13 @@ exports.delete = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot delete User with idUser=${idUser}. Maybe User was not found!`
+            message: `Cannot delete User with id=${id}. Maybe User was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete User with idUser=" + idUser
+          message: "Could not delete User with id=" + id
         });
       });
   };

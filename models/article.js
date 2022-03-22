@@ -14,8 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 
   // generate the model  modelo, types
   article.init({
-    
-    name: {
+      name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -107,7 +106,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: true
     }
-    
     
   }, {
     sequelize,

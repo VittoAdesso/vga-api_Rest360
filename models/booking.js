@@ -66,7 +66,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'booking',
   });
-
   return booking;
-
 };

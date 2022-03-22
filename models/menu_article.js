@@ -16,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   menuArticle.init({
-  
-    // i dont have to define any fields, because is the middle table to connect menu & articles 
+      // i dont have to define any fields, because is the middle table to connect menu & articles 
   }, {
     sequelize,
     modelName: 'menuArticle',

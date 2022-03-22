@@ -45,13 +45,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }
-  
-    
+      
   }, {
     sequelize,
     modelName: 'bookingGift',
   });
-
   return bookingGift;
-
 };

@@ -29,13 +29,13 @@ exports.findOne = async (req, res) => {
 // method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.idArticle) {
+    if (!req.body.type) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
       return;
     }
-    // Create a new User
+    // Create a new ARTCILE
     const articleNew = {
       name: req.body.name,
       category: req.body.category,

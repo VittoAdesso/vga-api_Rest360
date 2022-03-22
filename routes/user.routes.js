@@ -21,7 +21,7 @@ module.exports = app => {
     router.delete("/deleteUser/:idUser", users.delete);
 
     // make login
-    router.post("/signin/", users.login);
+    router.post("/signin", users.login);
 
     //define route gral
     app.use('/api/users', router);

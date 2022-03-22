@@ -72,6 +72,7 @@ exports.create = async (req, res) => {
         const orderArticles = articles.map((article) =>{
             return {
             // i make a destructuring and take inputs to fill table ordeer_article
+            // sequelize when return data insert into "dataValues --- always !! "
             ...article.dataValues, 
                 orderId: result.id, 
                 articleId: article.id

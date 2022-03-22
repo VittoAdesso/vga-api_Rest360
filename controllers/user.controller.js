@@ -3,8 +3,11 @@ const User = db.user;
 //i have to import incluede findOne
 const Order = db.order;
 
+// have to require librarys to
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+
+// create a constant to config data (is secret )
 const authConfig = { 
   secret: "vga", 
   expires: "24h",
@@ -21,7 +24,6 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
 
   const id = req.params.id; 
-
   try { 
     const user = await User.findOne({
       include: [{
@@ -32,10 +34,8 @@ exports.findOne = async (req, res) => {
         id 
       },
     });
-
   if (user) { 
     return res.status(200).json(user);} 
-
     else { 
       return res.status(404).json('No User found by this id'); } 
     } 
@@ -63,28 +63,23 @@ exports.create = async (req, res) => {
     };
   // Encriptamos la contraseña
     userNew.password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
-    
-    // Crear un usuario
+        // Crear un usuario
     User.create(userNew)
           .then(user => {
-      
-        // Creamos el token
-                let token = jwt.sign({ user: user }, authConfig.secret, {
-                      expiresIn: 10
-                  });
-      
-                  res.json({
-                      user: user,
-                      token: token
-                  });
-      
-              }).catch(err => {
-                  res.status(500).json(err);
-              });
+        // create token
+          let token = jwt.sign({ user: user }, authConfig.secret, {
+                  expiresIn: 10
+          });
+          res.json({
+            user: user,
+            token: token
+          });
+        }).catch(err => {
+            res.status(500).json(err);
+        });
 };
 
    //to update booking 
-
 exports.update = (req, res) => {
     const id = req.params.id;
     User.update(req.body, {
@@ -134,43 +129,20 @@ exports.delete = (req, res) => {
       });
   };
 
-// // function to login and verify user exist (basic mode without jwt & bcrypt)
-// exports.login = async (req, res) => {
-//   const email = req.body.email;
-//   const password = req.body.password;
-//     try {
-//       const user = await User.findOne({
-//         where: {
-//           email : email,
-//           password : password,
-//         },
-//       });
-//     if (user) { 
-//       return res.status(200).json(user);} 
-//       else { 
-//         return res.status(404).json('No User found, please try again'); } 
-//     } catch (err) {
-//   }
-// }
 
-// // 2 option 
+// to loggin 
 exports.login = async (req, res, next) => {
-
   let { email, password } = req.body;
-
   // Buscar usuario
   User.findOne({
       where: {
           email: email
       }
   }).then(user => {
-
       if (!user) {
-          res.status(404).json({ msg: "Usuario con este correo no encontrado" });
+          res.status(404).json({ msg: "Can't found User & password" });
       } else {
-
           if (bcrypt.compareSync(password, user.password)) {
-
               // Creamos el token
               let token = jwt.sign({ user: user }, authConfig.secret, {
                   expiresIn: authConfig.expires
@@ -180,15 +152,11 @@ exports.login = async (req, res, next) => {
                   user: user,
                   token: token
               })
-
           } else {
-
               // Unauthorized Access
-              res.status(401).json({ msg: "Contraseña incorrecta" })
+              res.status(401).json({ msg: "Invalid Password" })
           }
-
       }
-
   }).catch(err => {
       res.status(500).json(err);
   })

@@ -9,9 +9,7 @@ exports.findAll = async (req, res) => {
 
 // findOne un id, controlando errores en case que no encuentre uno existente 
 exports.findOne = async (req, res) => {
-
   const id = req.params.id; 
-
   try { 
     const contact = await Contact.findOne({
       where: {
@@ -21,10 +19,9 @@ exports.findOne = async (req, res) => {
 
   if (contact) { 
     return res.status(200).json(contact);} 
-
     else { 
       return res.status(404).json('No Contact found by this id'); } 
-    } 
+  } 
   catch (err) { return res.status(500).json(err); } 
 };
 
@@ -39,7 +36,6 @@ exports.create = async (req, res) => {
     }
     // Create a new Contact
     const newContact = {
-
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       phone:req.body.phone,
@@ -50,8 +46,7 @@ exports.create = async (req, res) => {
 
       published: req.body.published ? req.body.published : false
     };
-    
-    // Save user in the database
+        // Save user in the database
     Contact.create(newContact)
       .then(newpeople => {
         res.send(newpeople);
@@ -92,9 +87,7 @@ exports.update = (req, res) => {
   // to delete one
 exports.delete = (req, res) => {
     const id = req.params.id;
-    
-    Contact.destroy({
-
+      Contact.destroy({
       // i dont have to write where { id : id} because in js while doesnt have an other valor, i dont have to duplicate 
       where: { id }
     })

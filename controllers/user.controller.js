@@ -48,7 +48,6 @@ exports.create = async (req, res) => {
     }
     // Create a new User
     const userNew = {
-   
       userName: req.body.userName,
       firstName: req.body.firstName,
       lastName:req.body.lastName,
@@ -103,7 +102,6 @@ exports.delete = (req, res) => {
     const id = req.params.id;
     
     User.destroy({
-
       // i dont have to write where { id : id} because in js while doesnt have an other valor, i dont have to duplicate 
       where: { id }
     })
@@ -127,22 +125,20 @@ exports.delete = (req, res) => {
 
 // function to login and verify user exist (basic mode without jwt & bcrypt)
 exports.login = async (req, res) => {
-
   const email = req.body.email;
   const password = req.body.password;
-  try {
-    const user = await User.findOne({
-      where: {
-        email : email,
-        password : password,
-      },
-    });
-
-  if (user) { 
-    return res.status(200).json(user);} 
-    else { 
-      return res.status(404).json('No User found, please try again'); } 
-      } catch (err) {
+    try {
+      const user = await User.findOne({
+        where: {
+          email : email,
+          password : password,
+        },
+      });
+    if (user) { 
+      return res.status(200).json(user);} 
+      else { 
+        return res.status(404).json('No User found, please try again'); } 
+    } catch (err) {
   }
 }
 

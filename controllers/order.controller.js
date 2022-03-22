@@ -11,7 +11,6 @@ exports.findAll = async  (req, res) => {
     const query = isActive && { where: {
             status : { [Op.or] : [ 0,1,2,3 ]}
     }}
-
     const orders = await Order.findAll(query);
         res.send(orders);
 }

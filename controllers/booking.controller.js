@@ -3,10 +3,8 @@ const Booking = db.booking;
 
 // to fin all and get all items
 exports.findAll = async (req, res) => {
-
     const bookings = await Booking.findAll();
-
-    res.send(bookings);
+      res.send(bookings);
 }
 
 // to create a new one 

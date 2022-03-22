@@ -4,17 +4,13 @@ const Article = db.article;
 // to fin all and get all items
 
 exports.findAll = async (req, res) => {
-
     const articles = await Article.findAll();
-
-    res.send(articles);
+      res.send(articles);
 }
 
-// findOne un id, controlando errores en case que no encuentre uno existente 
+// findOne un id, controlling errors in case user Id dont Exist 
 exports.findOne = async (req, res) => {
-
   const id = req.params.id; 
-
   try { 
     const article = await Article.findOne({
       where: {
@@ -24,14 +20,10 @@ exports.findOne = async (req, res) => {
 
   if (article) { 
     return res.status(200).json(article);} 
-
     else { 
       return res.status(404).json('No Article found by this id'); } 
-  
   } 
-
   catch (err) { return res.status(500).json(err); } 
-
 };
 
 // method to have query to create a new one

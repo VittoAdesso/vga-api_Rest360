@@ -28,9 +28,9 @@ exports.findOne = async (req, res) => {
 // method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.id) {
+    if (!req.body.email) {
       res.status(400).send({
-        message: "Content can not be empty!"
+        message: "Content 'email' can not be empty!"
       });
       return;
     }
@@ -60,7 +60,6 @@ exports.create = async (req, res) => {
   };
 
    //to update booking 
-
 exports.update = (req, res) => {
     const id = req.params.id;
     Contact.update(req.body, {

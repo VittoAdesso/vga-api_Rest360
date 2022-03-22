@@ -8,12 +8,11 @@ exports.findAll = async (req, res) => {
 }
 
 // to create a new one 
-
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.idReserva) {
+    if (!req.body.email) {
       res.status(400).send({
-        message: "Content can not be empty!"
+        message: "Content 'email' can not be empty!"
       });
       return;
     }

@@ -2,15 +2,12 @@ const db = require('../models');
 const Bill = db.bill;
 
 exports.findAll = async (req, res) => {
-
     const bills = await Bill.findAll();
-
-    res.send(bills);
+        res.send(bills);
 }
 
 // findOne  id, controlling errors in case dont found and existe one 
 exports.findOne = async (req, res) => {
-
     const id = req.params.id; 
     try { 
     const bill = await Bill.findOne({
@@ -18,7 +15,6 @@ exports.findOne = async (req, res) => {
             id 
         },
     });
-
     if (bill) { 
     return res.status(200).json(bill);} 
         else { 
@@ -30,11 +26,11 @@ exports.findOne = async (req, res) => {
 // method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.id) {
-      res.status(400).send({
-        message: "Content can not be empty!"
-      });
-      return;
+    if (!req.body.pagado) {
+    res.status(400).send({
+        message: "Content 'pagado' can not be empty!"
+    });
+    return;
     }
     // Create a new Bill
     const newBill = {
@@ -55,7 +51,7 @@ exports.create = async (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-          message:
+        message:
             err.message || "Some error occurred while creating the new Bill."
         });
     });

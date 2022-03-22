@@ -43,7 +43,7 @@ exports.findOne = async (req, res) => {
 // method to create a new one
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.id) {
+    if (!req.body.status) {
     res.status(400).send({
         message: "Content can not be empty!"
     });
@@ -62,18 +62,22 @@ exports.create = async (req, res) => {
         };
         // Save order in the database
     try{
-        const result = Order.create(newOrder); 
-        const articles = Article.findAll({
+        const result = await Order.create(newOrder); 
+        const articles = await Article.findAll({
         where: {
             id : newOrder.articlesIds
         }
     })
-    const orderArticles = articles.map((article) =>({
-        ...article, 
-        orderId: result.id, 
-        articleId: article.id
-    })); 
-    OrderArticle.bulkCreate(orderArticles);
+    // create a new const to map array and make a spred operator
+        const orderArticles = articles.map((article) =>{
+            return {
+            // i make a destructuring and take inputs to fill table ordeer_article
+            ...article.dataValues, 
+                orderId: result.id, 
+                articleId: article.id
+        }}); 
+    // create and fill table is a function
+    await OrderArticle.bulkCreate(orderArticles);
         res.send(result);
     }
     catch(err) {

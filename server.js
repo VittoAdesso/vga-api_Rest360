@@ -10,17 +10,17 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, username")
+        "Access-Control-Allow-Headers",
+        "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, username")
       //and remove cacheing so we get the most recent comments
-      res.setHeader('Cache-Control', 'no-cache');
-      next();
-    });
+        res.setHeader('Cache-Control', 'no-cache');
+        next();
+});
     
-    app.use(express.urlencoded({ extended : true }));
-    app.use(express.json());
+app.use(express.urlencoded({ extended : true }));
+app.use(express.json());
     
-// requiero las rutas creadas 
+// require exist routes and export here 
 require('./routes/user.routes')(app);
 require('./routes/bill.routes')(app);
 require('./routes/table.routes')(app);

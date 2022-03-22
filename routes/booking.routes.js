@@ -9,7 +9,7 @@ module.exports = app => {
     router.post("/register", bookings.create);
 
      //route to update an exist booking
-    router.post("/updateBooking/:id", bookings.update);
+    router.put("/updateBooking/:id", bookings.update);
 
     // route to delete one id booking
     router.delete("/deleteBooking/:id", bookings.delete);

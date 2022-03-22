@@ -3,6 +3,7 @@ module.exports = app => {
     const router = require('express').Router();
 
     router.get('/', tables.findAll);
+    
     router.get('/:id', tables.findOne);
 
     app.use('/api/tables', router);

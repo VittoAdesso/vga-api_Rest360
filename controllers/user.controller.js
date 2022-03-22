@@ -40,7 +40,7 @@ exports.findOne = async (req, res) => {
 // method to have query to create a new one
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.idUser) {
+    if (!req.body.id) {
       res.status(400).send({
         message: "Content can not be empty!"
       });

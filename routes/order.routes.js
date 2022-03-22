@@ -9,7 +9,10 @@ module.exports = app => {
     router.get('/:id', orders.findOne);
 
     // create a new order
-    router.post("/create", orders.create);
-    
+    router.post("/", orders.create);
+
+    // to update status by ID
+    router.put("/:id/status", orders.updateStatus);
+
     app.use('/api/orders', router);
 }

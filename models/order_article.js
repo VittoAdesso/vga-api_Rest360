@@ -17,15 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   orderArticle.init({
     
-    idOrder: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    idArticle: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    costNeto: {
+  costNeto: {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
@@ -37,15 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
-    cookTime: {
+    status: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    status: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-          
+
   }, {
     sequelize,
     modelName: 'orderArticle',

@@ -9,13 +9,13 @@ module.exports = app => {
     router.get('/:id', contact.findOne);
 
      // create a new contact
-    router.post("/createContact", contact.create);
+    router.post("/create", contact.create);
 
     //route to update an exist contact
-    router.put("/updateContact/:id", contact.update);
+    router.put("/update/:id", contact.update);
 
      //route to update an exist contact
-    router.delete("/deleteContact/:id", contact.delete);
+    router.delete("/delete/:id", contact.delete);
 
     //define route gral
     app.use('/api/contact', router);

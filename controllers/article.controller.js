@@ -77,5 +77,55 @@ exports.create = async (req, res) => {
       });
   };
 
+  // method to have query to create a new one
+exports.update = async (req, res) => {
+  // Validate request
+  if (!req.body.id) {
+    res.status(400).send({
+      message: "Content  can not be empty!"
+    });
+    return;
+  }
+  // Create a new ARTCILE
+  const articleNew = {
+    name: req.body.name,
+    category: req.body.category,
+    type: req.body.type,
+    image: req.body.image,
+    timeCook: req.body.timeCook,
+    cost: req.body.cost,
+    iva: req.body.iva,
+    pvp: req.body.pvp,
+    isActive: req.body.active,
+    hasGluten: req.body.gluten,
+    hasCrustaceos: req.body.crustaceos,
+    hasEgg: req.body.egg,
+    hasFish: req.body.fish,
+    hasSoja: req.body.soja,
+    hasMilk: req.body.milk,
+    hasFructose: req.body.fructose,
+    hasMustard: req.body.mustard,
+    hasApio: req.body.apio,
+    hasMolusco: req.body.molusco,
+    hasAltramuces: req.body.altramuces,
+    hasSesamo: req.body.sesamo,
+    hasSulfito: req.body.sulfito,
+    hasCacahuate: req.body.cacahuate,
+
+    published: req.body.published ? req.body.published : false
+  };
+  
+  // Save user in the database
+  Article.update(articleNew)
+    .then(upArticle => {
+      res.send(upArticle);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while updating the new Article."
+      });
+    });
+};
 
 

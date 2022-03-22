@@ -66,7 +66,7 @@ exports.create = async (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the new Booking gift."
+            err.message || "Some error occurred while updating the new Booking gift."
         });
       });
   };

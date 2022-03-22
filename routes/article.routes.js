@@ -13,6 +13,9 @@ module.exports = app => {
     //route to register route a new one
     router.post("/register", articles.create);
 
+    //to update
+    router.put("/updateArticle", articles.update);
+
     // gral route
     app.use('/api/articles', router);
 }

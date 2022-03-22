@@ -5,8 +5,8 @@ module.exports = app => {
     router.get('/', bookingGift.findAll);
     // router.get('/:id', bookingGift.findOne);
 
-    //route to register route a new one
-    router.post("/register", bookingGift.create);
+    //route to create route a new one
+    router.post("/", bookingGift.create);
 
     app.use('/api/bookingGift', router);
 }

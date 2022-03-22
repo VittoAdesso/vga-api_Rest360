@@ -10,7 +10,7 @@ exports.findAll = async (req, res) => {
 
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.idGift) {
+    if (!req.body.id) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
@@ -25,8 +25,6 @@ exports.create = async (req, res) => {
         dateBuy: req.body.dateBuy,
         dateConsume: req.body.dateConsume,
         valid: req.body.valid,
-
-      published: req.body.published ? req.body.published : false
     };
     
     // Save booking gift in the database

@@ -8,5 +8,8 @@ module.exports = app => {
     //route to create route a new one
     router.post("/", bookingGift.create);
 
+    //to update
+    router.put("/updateOne", bookingGift.update);
+
     app.use('/api/bookingGift', router);
 }

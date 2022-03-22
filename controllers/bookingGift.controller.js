@@ -18,7 +18,7 @@ exports.create = async (req, res) => {
     const bookGifNew = {
         codigo: req.body.codigo,
         typeGift: req.body.typeGift,
-        numPerson: req.body.numPerson,
+        numPersonas: req.body.numPerson,
         cost: req.body.cost,
         dateBuy: req.body.dateBuy,
         dateConsume: req.body.dateConsume,
@@ -51,7 +51,7 @@ exports.create = async (req, res) => {
     const bookGifNew = {
         codigo: req.body.codigo,
         typeGift: req.body.typeGift,
-        numPerson: req.body.numPerson,
+        numPersonas: req.body.numPerson,
         cost: req.body.cost,
         dateBuy: req.body.dateBuy,
         dateConsume: req.body.dateConsume,
@@ -59,9 +59,9 @@ exports.create = async (req, res) => {
     };
     
     // Save booking gift in the database
-    BookingGift.create(bookGifNew)
-      .then(newBookGift => {
-        res.send(newBookGift);
+    BookingGift.update(bookGifNew)
+      .then(bookGift => {
+        res.send(bookGift);
       })
       .catch(err => {
         res.status(500).send({

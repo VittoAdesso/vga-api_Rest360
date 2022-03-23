@@ -4,6 +4,7 @@ const Order = db.order;
 const Article = db.article;
 const User = db.user;
 const OrderArticle = db.orderArticle;
+// const Table = db.table;
 
 
 exports.findAll = async  (req, res) => {
@@ -26,7 +27,12 @@ exports.findOne = async (req, res) => {
         }, {
             model: User,
             as: "user"
-        }],
+        }, 
+        // {
+        //     model: Table,
+        //     as: "table"
+        // }
+    ],
         where: {
             id 
         },
@@ -58,7 +64,8 @@ exports.create = async (req, res) => {
         status: req.body.status,
         date: req.body.date,
         userId: req.body.userId,
-        articlesIds: req.body.articlesIds
+        articlesIds: req.body.articlesIds,
+        idTable: req.body.idTable
         };
         // Save order in the database
     try{
@@ -105,7 +112,7 @@ exports.updateStatus = async (req, res) =>{
     const { id } = req.params;     
     try{
         // Save order in the database
-       await Order.update(existOrder, {
+    await Order.update(existOrder, {
             where: {
                 id 
             }
@@ -117,7 +124,12 @@ exports.updateStatus = async (req, res) =>{
             }, {
                 model: User,
                 as: "user"
-            }],
+            }, 
+            // {
+            //     model: Table,
+            //     as: "table"
+            // },        
+        ],
             where: {
                 id 
             },

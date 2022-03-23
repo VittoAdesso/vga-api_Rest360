@@ -18,6 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         // name of association == as IS COMPULSORY, singular
         as: "user",
       }),
+      // // singular
+      // models.order.belongsTo(models.table, {
+      //   foreignKey: "idTable",
+      //   // name of association == as IS COMPULSORY, singular
+      //   as: "table",
+      // }),
 
       models.order.belongsToMany(models.article, {
         through: models.orderArticle,
@@ -38,6 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     costNeto: DataTypes.DECIMAL(6,2),
     iva: DataTypes.DECIMAL(6,2),
     pvp: DataTypes.DECIMAL(6,2),
+    idTable: DataTypes.INTEGER,
     status: {
       type: DataTypes.INTEGER,
       allowNull: false

@@ -4,8 +4,6 @@ const Order = db.order;
 const Article = db.article;
 const User = db.user;
 const OrderArticle = db.orderArticle;
-// const Table = db.table;
-
 
 exports.findAll = async  (req, res) => {
     const { isActive } = req.query;
@@ -27,17 +25,12 @@ exports.findOne = async (req, res) => {
         }, {
             model: User,
             as: "user"
-        }, 
-        // {
-        //     model: Table,
-        //     as: "table"
-        // }
+        },
     ],
         where: {
             id 
         },
     });
-
     if (order) { 
     return res.status(200).json(order);} 
         else { 
@@ -125,10 +118,6 @@ exports.updateStatus = async (req, res) =>{
                 model: User,
                 as: "user"
             }, 
-            // {
-            //     model: Table,
-            //     as: "table"
-            // },        
         ],
             where: {
                 id 

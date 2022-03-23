@@ -9,7 +9,7 @@ module.exports = app => {
     router.post("/", bookingGift.create);
 
     //to update
-    router.put("/updateOne", bookingGift.update);
+    router.put("/updateOne/:id", bookingGift.update);
 
     app.use('/api/bookingGift', router);
 }

@@ -79,14 +79,14 @@ exports.create = async (req, res) => {
         });
 };
 
-   //to update booking 
+   //to update user 
 exports.update = (req, res) => {
     const id = req.params.id;
     User.update(req.body, {
       where: { id }
     })
-      .then(book => {
-        if (book == 1) {
+      .then(user => {
+        if (user == 1) {
           res.send({
             message: "User was updated successfully."
           });

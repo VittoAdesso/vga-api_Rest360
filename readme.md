@@ -20,6 +20,8 @@ CRUD controller and routes
 
 Defined routes on server
 
+### `npm run build`
+
 If you want to create a new structure in a new project folder (first step):
 
         mkdir sequelize-associations

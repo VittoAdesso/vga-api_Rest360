@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 app.use(express.urlencoded({ extended : true }));
 app.use(express.json());
     
-// require exist routes and export here 
+// require exist routes and export here IS IMPROTANT
 require('./routes/user.routes')(app);
 require('./routes/bill.routes')(app);
 require('./routes/table.routes')(app);

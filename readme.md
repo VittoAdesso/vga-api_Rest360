@@ -14,8 +14,18 @@ Used NodeJs
 Used Myql & ORM Sequelize
 
 Some dependencies i user:
-`` "bcrypt","cors","express","jsonwebtoken","sequelize-cli": "^6.4.1" ``
+`` "bcrypt","cors","express","jsonwebtoken","sequelize-cli" ``
 
 CRUD controller and routes
 
 Defined routes on server
+
+If you want to create a new structure in a new project folder (first step):
+
+        mkdir sequelize-associations
+        cd sequelize-associations
+        npm init -y
+        npm install sequelize pg
+        npm install --save-dev sequelize-cli
+        npx sequelize-cli init
+        code .

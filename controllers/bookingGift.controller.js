@@ -40,7 +40,7 @@ exports.create = async (req, res) => {
 
   //to update booking 
 
-  exports.update = (req, res) => {
+exports.update = (req, res) => {
     const id = req.params.id;
     BookingGift.update(req.body, {
       where: { id }

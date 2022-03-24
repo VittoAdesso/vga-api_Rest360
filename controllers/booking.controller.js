@@ -48,7 +48,7 @@ exports.create = async (req, res) => {
 
   //to update booking 
 
-  exports.update = (req, res) => {
+exports.update = (req, res) => {
     const id = req.params.id;
     Booking.update(req.body, {
       where: { id }
@@ -72,8 +72,7 @@ exports.create = async (req, res) => {
   };
 
   // to delete one
-  
-  exports.delete = (req, res) => {
+exports.delete = (req, res) => {
     const id = req.params.id;
     Booking.destroy({
       where: { id }
